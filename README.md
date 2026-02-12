@@ -1,1 +1,1 @@
-# Spacecraft-Propulsion-Fault-Diagnosis-
+# Spacecraft Propulsion Fault Diagnosis
