@@ -5,23 +5,32 @@
 ![Domain](https://img.shields.io/badge/Domain-Aerospace%20%7C%20PHM-red)
 
 ## 1. Overview
-This repository contains a **Prognostics and Health Management (PHM)** framework designed for ISRO's next-generation spacecraft propulsion simulation system. The project moves beyond standard "black-box" classification by implementing a **hierarchical, physics-informed machine learning pipeline** to diagnose anomalies using high-frequency sensor data.
+This repository contains a **Prognostics and Health Management (PHM)** framework designed for a spacecraft's propulsion simulation system. The project incorporates a **hierarchical, physics-informed machine learning pipeline** to diagnose anomalies using high-frequency sensor data.
 
-The system addresses the challenge of identifying **Bubble Contamination**, **Solenoid Valve Faults**, and **Unknown Anomalies** in a pressurized fluid network exhibiting complex fluid dynamics, including water hammer effects.
+The system addresses the challenge of classifying three major faults that arise in spacecraft propulsion sytem, namely **Bubble Contamination**, **Solenoid Valve Faults**, and **Unknown Anomalies** in a pressurized fluid network exhibiting complex fluid dynamics, including water hammer effects.
 
 ## 2. System Description
 The experimental setup simulates a spacecraft propulsion system where water pressurized at **2.0 MPa** is discharged through four solenoid valves (SV1–SV4).
 
-* **Sensors:** 7 Pressure Sensors (P1–P7) sampled at **1 kHz**.
-* **Actuation:** Valves open at 100ms and close at 300ms.
+* **Sensors:** 7 Pressure Sensors (P1–P7) sampled at **1 kHz**, for a period of **1.2s**.
+* **Actuation:** Valves opens and closes once every 400ms, thereby opens and closes thrice during the enitre 1.2s period.
 * **Physics:** The system is characterized by pressure fluctuations due to the **water hammer effect** followed by acoustic mode propagation inside the piping.
 
-## 3. Methodology
-To handle the complexity of the 1 kHz time-series data, a hierarchical approach was adopted:
+## 3. Dataset Description
+The  training dataset consists of 177 csv files of pressure fluctuation in the 7 pressure sensors for a period of 1.2s, sampled
+at 1 kHz  for three spacecraft (Spacecraft 1, 2, and 3). The test dataset consists of 46 csv files belonging to a known Spacecraft 1 and a completely unknown Spacecraft 4
 
-### Phase 1: Physics-Informed Feature Engineering
-Instead of raw data, features were extracted based on the physical operation phases of the valves:
-* **Time Segmentation:** Features extracted specifically from the "Water Hammer Window" (100ms–300ms) vs. steady state.
+## 4. Methodology
+### Exploratory Data Analysis
+On subtracting the mean normal signal from that of an abnormal, high frequency residuals are obtained, indicating that fault information
+is hidden in the frequency domain (acoustics), rather than in global statistical shifts. Visualization of pressure variation further showed that fault detection can be done on the dataset by analyzing individual pressure fluctuations with time.
+
+<img width="398" height="145" alt="image" src="https://github.com/user-attachments/assets/a81b0e87-3e7e-453d-9602-d15a7834f2a0" />
+
+
+### Phase 2: Physics-Informed Feature Engineering
+Instead of using standard time domain features like mean, median, skew ,etc for feature engineering, this project involves a Physics-Informed feature engineering approach which takes into account the physics of the system:
+* **Time Segmentation:** 
 * **Statistical Moments:** Mean, Variance, Skewness, and Kurtosis to capture the shape of the pressure wave.
 * **Differential Features:** Pressure drops across critical sections (e.g., $P_{tank} - P_{valve}$) to model flow resistance.
 
@@ -53,8 +62,6 @@ The model was evaluated on unseen test data (Spacecraft Unit 4), achieving an **
 
 ## 5. Future Work: Thesis Proposal
 The current statistical approach struggles with **Task 4 (Valve Localization)** due to its inability to explicitly model the governing fluid equations.
-
-My proposed Bachelor's Thesis will address this by implementing **Physics-Informed Neural Networks (PINNs)**. By embedding the **Navier-Stokes** and **Water Hammer equations** directly into the loss function, the model will be constrained to physically valid predictions, improving generalization across different spacecraft units without requiring extensive retraining.
 
 ## 6. Repository Structure
 ```bash
