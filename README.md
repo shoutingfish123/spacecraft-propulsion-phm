@@ -32,7 +32,8 @@ is hidden in the frequency domain (acoustics), rather than in global statistical
 Instead of using standard time domain features like mean, median, skew etc. for feature engineering, this project involves a Physics-Informed feature engineering approach:
 * **Time Segmentation:** The 1.2s period is divided into 3 equal parts from which maximum standard deviation of pressure is calculated. This prevents the model from ignoring local extrema in search of global extrema which are not always indicative of fault.
 *  **Frequency-Domain Analysis:** To capture the acoustic variations that may arise in the system, the Fast Fourier Transform (FFT) is applied to convert data drom time-domain to frequency domain and to obtain:
-** **Dominant Frequency Power:** This captures the magnitude of the primary resonance.
+ - **Dominant Frequency Power:** This captures the magnitude of the primary resonance.
+ 
 ** **Energy Bins:** Energy was separated into low-frequency (0–50 Hz) which represents the water hammer thud and high-frequency (>50Hz) which represents acoustic ringing.
 
 ### Hierarchical Classification Pipeline
