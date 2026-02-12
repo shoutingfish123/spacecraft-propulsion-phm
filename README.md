@@ -28,13 +28,14 @@ is hidden in the frequency domain (acoustics), rather than in global statistical
 <img width="398" height="145" alt="image" src="https://github.com/user-attachments/assets/a81b0e87-3e7e-453d-9602-d15a7834f2a0" />
 
 
-### Phase 2: Physics-Informed Feature Engineering
-Instead of using standard time domain features like mean, median, skew ,etc for feature engineering, this project involves a Physics-Informed feature engineering approach which takes into account the physics of the system:
-* **Time Segmentation:** 
-* **Statistical Moments:** Mean, Variance, Skewness, and Kurtosis to capture the shape of the pressure wave.
-* **Differential Features:** Pressure drops across critical sections (e.g., $P_{tank} - P_{valve}$) to model flow resistance.
+### Physics-Informed Feature Engineering
+Instead of using standard time domain features like mean, median, skew etc. for feature engineering, this project involves a Physics-Informed feature engineering approach:
+* **Time Segmentation:** The 1.2s period is divided into 3 equal parts from which maximum standard deviation of pressure is calculated. This prevents the model from ignoring local extrema in search of global extrema which are not always indicative of fault.
+*  **Frequency-Domain Analysis:** To capture the acoustic variations that may arise in the system, the Fast Fourier Transform (FFT) is applied to convert data drom time-domain to frequency domain and to obtain:
+** **Dominant Frequency Power:** This captures the magnitude of the primary resonance.
+** **Energy Bins:** Energy was separated into low-frequency (0–50 Hz) which represents the water hammer thud and high-frequency (>50Hz) which represents acoustic ringing.
 
-### Phase 2: Hierarchical Classification Pipeline
+### Hierarchical Classification Pipeline
 The problem was broken down into five sequential tasks to prevent class imbalance from skewing results:
 1.  **Anomaly Detection:** Binary classification (Normal vs. Abnormal).
 2.  **Fault Classification:** Distinguishing between Bubble vs. Valve Fault vs. Unknown.
