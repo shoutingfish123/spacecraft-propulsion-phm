@@ -30,8 +30,10 @@ at 1 kHz  for three spacecraft (Spacecraft 1, 2, and 3). The test dataset consis
 ### Exploratory Data Analysis
 On subtracting the mean normal signal from that of an abnormal, high frequency residuals are obtained, indicating that fault information
 is hidden in the frequency domain (acoustics), rather than in global statistical shifts. Visualization of pressure variation further showed that fault detection can be done on the dataset by analyzing individual pressure fluctuations with time.
-
+<p align="center">
 <img width="398" height="145" alt="image" src="https://github.com/user-attachments/assets/a81b0e87-3e7e-453d-9602-d15a7834f2a0" />
+</p>
+
 
 
 ### Physics-Informed Feature Engineering
