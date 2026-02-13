@@ -15,6 +15,9 @@ The experimental setup simulates a spacecraft propulsion system where water pres
 * **Sensors:** 7 Pressure Sensors (P1–P7) sampled at **1 kHz**, for a period of **1.2s**.
 * **Actuation:** Valves opens and closes once every 400ms, thereby opens and closes thrice during the enitre 1.2s period.
 * **Physics:** The system is characterized by pressure fluctuations due to the **water hammer effect** followed by acoustic mode propagation inside the piping.
+<img width="325" height="203" alt="image" src="https://github.com/user-attachments/assets/8f32b20a-16e8-4b55-ac38-d2b0df2b3947" />
+
+
 
 ## 3. Dataset Description
 The  training dataset consists of 177 csv files of pressure fluctuation in the 7 pressure sensors for a period of 1.2s, sampled
