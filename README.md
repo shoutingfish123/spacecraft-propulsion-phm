@@ -39,23 +39,23 @@ Instead of using standard time domain features like mean, median, skew etc. for 
 
 ### Hierarchical Classification Pipeline
 The problem was broken down into five sequential tasks to prevent class imbalance from skewing results:
-1.  **Anomaly Detection:** Binary classification (Normal vs. Abnormal).
+1.  **Abnormal Datapoint Detection:** Binary classification (Normal vs. Abnormal).
 2.  **Fault Classification:** Distinguishing between Bubble vs. Valve Fault vs. Unknown.
 3.  **Bubble Localization:** Identifying the specific bubble location (BP1–BP7).
 4.  **Valve Localization:** Identifying the specific faulty valve (SV1–SV4).
 5.  **Severity Estimation:** Regressing the valve opening ratio (0–100%).
 
 **Key Algorithms:**
-* **Random Forest & XGBoost:** For robust supervised classification.
+* **KNN, Random Forest:** For robust supervised classification.
 * **Isolation Forest:** Implemented to detect "Unknown" system behaviors/outliers not seen in training.
-* **GroupKFold Validation:** Utilized to ensure the model generalizes across different Spacecraft Units (Unit 1 vs. Unit 4) rather than overfitting to specific sensor noise.
+* **GroupKFold Validation:** Utilized to ensure the model generalizes across different Spacecraft Units (Unit 1 vs. Unit 4) rather than overfitting to specific sensor data.
 
 ## 4. Results & Performance
 The model was evaluated on unseen test data (Spacecraft Unit 4), achieving an **Exact Row Match Accuracy of 76.02%**.
 
-| Task | Description | Accuracy / Metric |
-| :--- | :--- | :--- |
-| **Task 1** | Anomaly Detection | **78.26%** |
+Description | Accuracy / Metric |
+:--- | :--- |
+Anomaly Detection | **78.26%** |
 | **Task 2** | Fault Type Classification | **76.09%** |
 | **Task 3** | Bubble Localization | **70.00%** |
 | **Task 4** | Valve Fault Localization | **20.00%** |
