@@ -51,24 +51,23 @@ The problem was broken down into five sequential tasks to prevent class imbalanc
 * **GroupKFold Validation:** Utilized to ensure the model generalizes across different Spacecraft Units (Unit 1 vs. Unit 4) rather than overfitting to specific sensor data.
 
 ## 4. Results & Performance
-The model was evaluated on unseen test data (Spacecraft Unit 4), achieving an **Exact Row Match Accuracy of 76.02%**.
+The model was evaluated on unseen test data (Spacecraft Unit 4), achieving an Exact Row Match Accuracy of **76.02%**.
 
 Description | Accuracy / Metric |
 :--- | :--- |
-Anomaly Detection | **78.26%** |
-| **Task 2** | Fault Type Classification | **76.09%** |
-| **Task 3** | Bubble Localization | **70.00%** |
-| **Task 4** | Valve Fault Localization | **20.00%** |
-| **Overall** | **Exact Row Match** | **76.02%** |
+Fault Detection | 78.26% |
+Fault Type Classification | 76.09% |
+Bubble Localization | 70.00% |
+Valve Fault Localization | 20.00% |
+Exact Row Match | **76.02%** |
 
-*Note: The performance drop in Task 4 highlights the challenge of "Domain Shift" between spacecraft units, where subtle variations in piping geometry affect wave propagation.*
+*Note: The performance drop in Valve Fault Localization highlights the challenge of "Domain Shift" as the model is tested on unseen data from Spacecraft 4.*
 
-## 5. Future Work: Thesis Proposal
-The current statistical approach struggles with **Task 4 (Valve Localization)** due to its inability to explicitly model the governing fluid equations.
+
 
 ## 6. Repository Structure
 ```bash
-├── data/               # Processed datasets (GroundTruth.csv, Submission.csv)
+├── data/               # Processed datasets (GroundTruth.csv, ModelResult.csv)
 ├── notebooks/          # Jupyter notebooks for EDA and Modeling
 │   ├── 01_Exploratory_Data_Analysis.ipynb
 │   ├── 02_Feature_Engineering_Final.ipynb
