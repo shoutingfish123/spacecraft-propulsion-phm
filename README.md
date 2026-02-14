@@ -24,7 +24,7 @@ The experimental setup simulates a spacecraft propulsion system where water pres
 
 ## 3. Dataset Description
 The  training dataset consists of 177 csv files of pressure fluctuation in the 7 pressure sensors for a period of 1.2s, sampled
-at 1 kHz  for three spacecraft (Spacecraft 1, 2, and 3). The test dataset consists of 46 csv files belonging to a known Spacecraft 1 and a completely unknown Spacecraft 4
+at 1 kHz  for three spacecraft (Spacecraft 1, 2, and 3). The test dataset consists of 46 csv files belonging to a known Spacecraft 1 and a completely unknown Spacecraft 4.
 
 ## 4. Methodology
 ### Exploratory Data Analysis
