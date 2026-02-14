@@ -10,11 +10,11 @@ This repository contains a **Prognostics and Health Management (PHM)** framework
 The system addresses the challenge of classifying three major faults that arise in spacecraft propulsion sytem, namely **Bubble Contamination**, **Solenoid Valve Faults**, and **Unknown Anomalies** in a pressurized fluid network exhibiting complex fluid dynamics, including water hammer effects.
 
 ## 2. System Description
-The experimental setup simulates a spacecraft propulsion system where water pressurized at **2.0 MPa** is discharged through four solenoid valves (SV1–SV4).
+The experimental setup simulates a spacecraft propulsion system where water pressurized at 2.0 MPa is discharged through four solenoid valves (SV1–SV4).
 
-* **Sensors:** 7 Pressure Sensors (P1–P7) sampled at **1 kHz**, for a period of **1.2s**.
+* **Sensors:** 7 Pressure Sensors (P1–P7) sampled at 1 kHz, for a period of 1.2s.
 * **Actuation:** Valves opens and closes once every 400ms, thereby opens and closes thrice during the enitre 1.2s period.
-* **Physics:** The system is characterized by pressure fluctuations due to the **water hammer effect** followed by acoustic mode propagation inside the piping.
+* **Physics:** The system is characterized by pressure fluctuations due to the water hammer effect followed by acoustic mode propagation inside the piping.
 <p align="center">
   <img width="350" height="182" alt="image" src="https://github.com/user-attachments/assets/75d8ecb1-d069-4e55-a919-9d54c6727975" />
 </p>
