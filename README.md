@@ -1,8 +1,6 @@
 # Hierarchical Fault Diagnosis of Spacecraft Propulsion Systems Using Physics-Informed Machine Learning
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
-![Status](https://img.shields.io/badge/Status-Research%20Prototype-orange)
-![Domain](https://img.shields.io/badge/Domain-Aerospace%20%7C%20PHM-red)
 
 ## 1. Overview
 This repository contains a **Prognostics and Health Management (PHM)** framework designed for a spacecraft's propulsion simulation system. The project incorporates a **hierarchical, physics-informed machine learning pipeline** to diagnose anomalies using high-frequency sensor data.
